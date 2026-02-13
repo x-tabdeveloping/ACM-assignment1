@@ -231,6 +231,7 @@ for random_p in tqdm([0.5, 0.6, 0.7, 0.8, 0.9], desc="Going through random playe
         fig = plot_win_rate(states)
         fig = fig.update_layout(width=1000, height=400)
         fig.write_image(fig_path.joinpath(f"random-{random_p}_{player_name}_wins.png"))
+
 for player_name, even_player in [
     ("stochastic", stochastic_bayesian()),
     ("greedy", greedy_bayesian()),
@@ -246,7 +247,7 @@ for player_name, even_player in [
     fig = plot_multiple_belief_updates(states, n_rows=10, n_cols=10, n_grid_points=50)
     fig.show()
     fig = fig.update_layout(width=1000, height=500)
-    fig.write_html(fig_path.joinpath(f"random-{random_p}_{player_name}_beliefs.html"))
+    fig.write_html(fig_path.joinpath(f"wsls_{player_name}_beliefs.html"))
     fig = plot_win_rate(states)
     fig = fig.update_layout(width=1000, height=500)
     fig.write_image(fig_path.joinpath(f"wsls_{player_name}_wins.png"))
